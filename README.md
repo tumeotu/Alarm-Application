@@ -1,6 +1,6 @@
 # Alarm-Application
 
-1. Future of application
+1. Futures of application
   - Mangage list alarm at home activity
      - Click on item to edit alarm, which user click
      - LongClick item to delete alarm
