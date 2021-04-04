@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.AlarmsListFragment"
+    android:weightSum="20"
+    android:padding="15dp"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:id="@+id/cancelAlarm"
+                android:layout_width="wrap_content"
+                android:gravity="start"
+                android:width="25dp"
+                android:height="25dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/cancel"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content">
+            </ImageView>
+            <TextView
+                android:id="@+id/fragment_createalarm_scheduleAlarmHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Schedule Alarm"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+
+                android:layout_centerInParent="true"/>
+            <ImageView
+                android:id="@+id/AddAlarm"
+                android:layout_width="wrap_content"
+                android:gravity="start"
+                android:width="25dp"
+                android:height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/add"
+                android:layout_height="wrap_content">
+            </ImageView>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        >
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/fragment_createalarm_timePickerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6">
+        <TimePicker
+            android:id="@+id/fragment_createalarm_timePicker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleY="1.2"
+            android:scaleX="1.2"
+            android:padding="0dp"
+            android:timePickerMode="spinner" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6.5">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_createalarm_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/title"
+                tools:ignore="MissingConstraints">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <CheckBox
+                android:id="@+id/fragment_createalarm_recurring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Recurring Alarm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_title" />
+            <LinearLayout
+                android:id="@+id/fragment_createalarm_recurring_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="fill_horizontal"
+                android:layoutDirection="ltr"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_recurring">
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkMon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mon" />
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkTue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tue" />
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkWed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wed" />
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkThu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/fragment_createalarm_recurring_options_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="fill_horizontal"
+                android:layoutDirection="ltr"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_recurring_options">
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkFri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fri" />
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkSat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sat" />
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkSun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sun" />
+
+            </LinearLayout>
+       </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>
