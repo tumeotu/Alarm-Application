@@ -15,7 +15,6 @@
         android:layout_height="match_parent">
     </androidx.recyclerview.widget.RecyclerView>
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fragment_listalarms_addAlarm"
         android:layout_width="wrap_content"

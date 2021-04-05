@@ -2,6 +2,7 @@ package com.android.alarm.Views;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.widget.TimePicker;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -116,6 +118,7 @@ public class CreateAlarmFragment extends Fragment {
 
     private void showRecurring(boolean isShow)
     {
+        recurring.setChecked(isShow);
         if (isShow) {
             recurringOptions.setVisibility(View.VISIBLE);
             recurringOptions_next.setVisibility(View.VISIBLE);
@@ -126,9 +129,8 @@ public class CreateAlarmFragment extends Fragment {
     }
     private void setViewUpdateAlarm(Alarm alarm)
     {
-        Bitmap icon = BitmapFactory.decodeResource(getResources(),
-                R.drawable.update);
-        addAlarm.setImageBitmap(icon);
+        Drawable myIcon =  ResourcesCompat.getDrawable(getResources(), R.drawable.ic_check_24dp_foreground,null);
+        addAlarm.setImageDrawable(myIcon);
         showRecurring(alarm.isRecurring());
         mon.setChecked(alarm.isMonday());
         tue.setChecked(alarm.isTuesday());
@@ -137,7 +139,9 @@ public class CreateAlarmFragment extends Fragment {
         fri.setChecked(alarm.isFriday());
         sat.setChecked(alarm.isSaturday());
         sun.setChecked(alarm.isSunday());
-        title.getEditText().setText(alarm.getTitle());
+        if (title.getEditText() != null) {
+            title.getEditText().setText(alarm.getTitle());
+        }
         timePicker.setHour(alarm.getHour());
         timePicker.setMinute(alarm.getMinute());
     }

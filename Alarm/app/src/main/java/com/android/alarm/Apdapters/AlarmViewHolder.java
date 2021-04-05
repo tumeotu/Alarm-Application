@@ -16,9 +16,8 @@ import com.android.alarm.Views.OnToggleAlarmListener;
 
 public class AlarmViewHolder extends RecyclerView.ViewHolder {
     private TextView alarmTime;
-    private ImageView alarmRecurring;
-    private TextView alarmRecurringDays;
     private TextView alarmTitle;
+    private TextView alarmRecurringDays;
     Switch alarmStarted;
 
     private OnToggleAlarmListener listener;
@@ -28,7 +27,7 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
 
         alarmTime = itemView.findViewById(R.id.item_alarm_time);
         alarmStarted = itemView.findViewById(R.id.item_alarm_started);
-        alarmRecurring = itemView.findViewById(R.id.item_alarm_recurring);
+        alarmTitle = itemView.findViewById(R.id.item_alarm_title);
         alarmRecurringDays = itemView.findViewById(R.id.item_alarm_recurringDays);
         this.listener = listener;
     }
@@ -37,12 +36,10 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         @SuppressLint("DefaultLocale") String alarmText = String.format("%02d:%02d", alarm.getHour(), alarm.getMinute());
         alarmTime.setText(alarmText);
         alarmStarted.setChecked(alarm.isStarted());
-
+        alarmTitle.setText(alarm.getTitle());
         if (alarm.isRecurring()) {
-            alarmRecurring.setImageResource(R.drawable.ic_repeat_black_24dp);
             alarmRecurringDays.setText(alarm.getRecurringDaysText());
         } else {
-            alarmRecurring.setImageResource(R.drawable.ic_looks_one_black_24dp);
             alarmRecurringDays.setText("Once Off");
         }
 
